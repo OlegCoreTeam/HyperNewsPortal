@@ -1,0 +1,10 @@
+{% extends 'news/layout.html' %}
+{% block content %}
+<link rel="stylesheet" href="">
+    <form action="{% url 'post_create' %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+    <input type="submit" value="Submit">
+    </form>
+<a target="_blank" target="_blank" target="_blank" target="_blank" target="_blank" target="_blank" href="/news/"></a>
+{% endblock %}

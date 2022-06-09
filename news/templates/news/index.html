@@ -1,0 +1,21 @@
+{% extends 'news/layout.html' %}
+{% block content %}
+    <h2>Hyper news</h2>
+    <form action="{% url 'news' %}" method="get">
+        {% csrf_token %}
+        {{ form }}
+    <input type="submit" value="Submit">
+    </form>
+    {% regroup news by created as news_list %}
+    {% for created in news_list %}
+        <h4>{{ created.grouper }}</h4>
+        <ul>
+            {% for post in created.list %}
+                <li><a target="_blank" target="_blank" target="_blank" target="_blank" target="_blank" href="/news/{{ post.link }}/">{{ post.title }}</a></li>
+            {% endfor %}
+        </ul>
+    {% empty %}
+        <h1>No posts!</h1>
+    {% endfor %}
+    <a target="_blank" target="_blank" target="_blank" target="_blank" target="_blank" target="_blank" href="/news/create/">create</a>
+{% endblock %}
